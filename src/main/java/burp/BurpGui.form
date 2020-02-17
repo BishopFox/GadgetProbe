@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="burp.BurpGui">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="16" left="16" bottom="16" right="16"/>
+    <constraints>
+      <xy x="20" y="20" width="600" height="4553"/>
+    </constraints>
+    <properties>
+      <focusable value="false"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="33842" binding="classPanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="256"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="de1cc">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="128" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <enabled value="true"/>
+              <focusable value="false"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="5d678" class="javax.swing.JList" binding="classesFoundList">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
+          <scrollpane id="125c4">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="128" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <focusable value="false"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="f7f0c" class="javax.swing.JList" binding="classesNotFoundList">
+                <constraints/>
+                <properties>
+                  <enabled value="true"/>
+                  <focusCycleRoot value="false"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <component id="19f61" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <focusable value="true"/>
+              <font style="1"/>
+              <text value="Classes Found:"/>
+            </properties>
+          </component>
+          <component id="865c7" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font style="1"/>
+              <text value="Classes not Found:"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="75da8" binding="optionsPanel" layout-manager="GridLayoutManager" row-count="8" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="true">
+            <minimum-size width="-1" height="256"/>
+            <maximum-size width="-1" height="256"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <scrollpane id="e4653">
+            <constraints>
+              <grid row="0" column="1" row-span="8" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="128" height="-1"/>
+                <maximum-size width="-1" height="256"/>
+              </grid>
+            </constraints>
+            <properties>
+              <autoscrolls value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="8f1d7" class="javax.swing.JTextArea" binding="consoleOutput">
+                <constraints/>
+                <properties>
+                  <autoscrolls value="true"/>
+                  <editable value="false"/>
+                  <lineWrap value="true"/>
+                  <rows value="10"/>
+                  <text value=""/>
+                  <wrapStyleWord value="true"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <component id="efad9" class="javax.swing.JCheckBox" binding="enablePollingCheckBox" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <actionCommand value="enableDisablePolling"/>
+              <enabled value="true"/>
+              <selected value="true"/>
+              <text value="Enable Polling"/>
+            </properties>
+          </component>
+          <component id="47fe2" class="javax.swing.JButton" binding="detectLibraryVersionsButton" default-binding="true">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <actionCommand value="detectLibraryVersion"/>
+              <text value="Detect Library Versions"/>
+              <toolTipText value="Detect library versions uses the bundled wordlists to try and identify library versions on the remote classpath"/>
+            </properties>
+          </component>
+          <component id="6907b" class="javax.swing.JButton" binding="clearHistoryAndResetButton" default-binding="true">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <actionCommand value="reset"/>
+              <text value="Reset Extension"/>
+              <toolTipText value="Reset will create a new collaborator interaction endpoint and no longer listen for incoming interactions on the previous endpoint. Class lists and the output will be cleared, as well."/>
+            </properties>
+          </component>
+          <grid id="80e90" binding="PollingOption" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="true"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="a5ed9" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Poll every"/>
+                </properties>
+              </component>
+              <component id="f7a89" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Seconds"/>
+                </properties>
+              </component>
+              <component id="ebd15" class="javax.swing.JFormattedTextField" binding="pollingIntervalSeconds">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <minimum-size width="32" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="30"/>
+                </properties>
+              </component>
+              <component id="c273" class="javax.swing.JButton" binding="pollNow">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="pollNow"/>
+                  <text value="Poll Now"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <vspacer id="f903c">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <maximum-size width="-1" height="20"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <component id="57b4c" class="javax.swing.JButton" binding="clearConsole">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <actionCommand value="clearConsole"/>
+              <text value="Clear Console"/>
+              <toolTipText value="Clear console to the right"/>
+            </properties>
+          </component>
+          <component id="db803" class="javax.swing.JButton" binding="refreshDNS">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <actionCommand value="refreshDNS"/>
+              <text value="Refresh DNS Endpoint"/>
+              <toolTipText value="Keep all data, but refresh interaction endpoint for all future generated payloads"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

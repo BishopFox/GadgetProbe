@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
+}
+
+mainClassName = 'com.bishopfox.gadgetprobe.GadgetProbe'
+
+group 'com.bishopfox'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Burp Extension
+    compile group: 'org.json', name: 'json', version: '20190722'
+    compile group: 'net.portswigger.burp.extender', name: 'burp-extender-api', version: '2.1'
+
+    // GadgetProbe
+    compile group: 'com.nqzero', name: 'permit-reflect', version: '0.4'
+    compile group: 'org.javassist', name: 'javassist', version: '3.26.0-GA'
+    compile group: 'com.intellij', name: 'forms_rt', version: '7.0.3'
+}
