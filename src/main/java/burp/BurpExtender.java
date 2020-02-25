@@ -1,6 +1,8 @@
 package burp;
 
-import java.awt.Component;
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -206,6 +208,10 @@ public class BurpExtender implements IBurpExtender, ActionListener, IIntruderPay
         else if(command.equals("detectLibraryVersion")) {
             String output = Analyzer.Analyze(guiManager.getClassesFound(), guiManager.getClassesNotFound());
             guiManager.consolePrintln(output);
+        }
+        else if(command.equals("copyWordlist")) {
+            Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard();
+            cb.setContents(new StringSelection(Analyzer.getWordlist()), null);
         }
         else if(command.equals("reset")) {
             guiManager.reset();

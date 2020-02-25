@@ -27,6 +27,7 @@ public class BurpGui {
     private JButton pollNow;
     private JButton clearConsole;
     private JButton refreshDNS;
+    private JButton copyWordlistButton;
     private TreeSet<String> classesFound = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
     private TreeMap<String, String> classesNotFound = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     private JListRenderer cellRenderer;
@@ -78,11 +79,11 @@ public class BurpGui {
         label2.setText("Classes not Found:");
         classPanel.add(label2, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         optionsPanel = new JPanel();
-        optionsPanel.setLayout(new GridLayoutManager(8, 2, new Insets(0, 0, 0, 0), -1, -1));
+        optionsPanel.setLayout(new GridLayoutManager(15, 2, new Insets(0, 0, 0, 0), -1, -1));
         mainPanel.add(optionsPanel, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(-1, 256), null, new Dimension(-1, 256), 0, true));
         final JScrollPane scrollPane3 = new JScrollPane();
         scrollPane3.setAutoscrolls(true);
-        optionsPanel.add(scrollPane3, new GridConstraints(0, 1, 8, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(128, -1), null, new Dimension(-1, 256), 0, false));
+        optionsPanel.add(scrollPane3, new GridConstraints(0, 1, 14, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(128, -1), null, new Dimension(-1, 256), 0, false));
         consoleOutput = new JTextArea();
         consoleOutput.setAutoscrolls(true);
         consoleOutput.setEditable(false);
@@ -97,19 +98,9 @@ public class BurpGui {
         enablePollingCheckBox.setSelected(true);
         enablePollingCheckBox.setText("Enable Polling");
         optionsPanel.add(enablePollingCheckBox, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        detectLibraryVersionsButton = new JButton();
-        detectLibraryVersionsButton.setActionCommand("detectLibraryVersion");
-        detectLibraryVersionsButton.setText("Detect Library Versions");
-        detectLibraryVersionsButton.setToolTipText("Detect library versions uses the bundled wordlists to try and identify library versions on the remote classpath");
-        optionsPanel.add(detectLibraryVersionsButton, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        clearHistoryAndResetButton = new JButton();
-        clearHistoryAndResetButton.setActionCommand("reset");
-        clearHistoryAndResetButton.setText("Reset Extension");
-        clearHistoryAndResetButton.setToolTipText("Reset will create a new collaborator interaction endpoint and no longer listen for incoming interactions on the previous endpoint. Class lists and the output will be cleared, as well.");
-        optionsPanel.add(clearHistoryAndResetButton, new GridConstraints(6, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         PollingOption = new JPanel();
         PollingOption.setLayout(new GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
-        optionsPanel.add(PollingOption, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, true));
+        optionsPanel.add(PollingOption, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label3 = new JLabel();
         label3.setText("Poll every");
         PollingOption.add(label3, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -123,18 +114,34 @@ public class BurpGui {
         pollNow.setActionCommand("pollNow");
         pollNow.setText("Poll Now");
         PollingOption.add(pollNow, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final Spacer spacer1 = new Spacer();
-        optionsPanel.add(spacer1, new GridConstraints(7, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, new Dimension(-1, 20), 0, false));
         clearConsole = new JButton();
         clearConsole.setActionCommand("clearConsole");
         clearConsole.setText("Clear Console");
         clearConsole.setToolTipText("Clear console to the right");
-        optionsPanel.add(clearConsole, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        optionsPanel.add(clearConsole, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         refreshDNS = new JButton();
         refreshDNS.setActionCommand("refreshDNS");
         refreshDNS.setText("Refresh DNS Endpoint");
         refreshDNS.setToolTipText("Keep all data, but refresh interaction endpoint for all future generated payloads");
-        optionsPanel.add(refreshDNS, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        optionsPanel.add(refreshDNS, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        clearHistoryAndResetButton = new JButton();
+        clearHistoryAndResetButton.setActionCommand("reset");
+        clearHistoryAndResetButton.setText("Reset Extension");
+        clearHistoryAndResetButton.setToolTipText("Reset will create a new collaborator interaction endpoint and no longer listen for incoming interactions on the previous endpoint. Class lists and the output will be cleared, as well.");
+        optionsPanel.add(clearHistoryAndResetButton, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        detectLibraryVersionsButton = new JButton();
+        detectLibraryVersionsButton.setActionCommand("detectLibraryVersion");
+        detectLibraryVersionsButton.setText("Detect Library Versions");
+        detectLibraryVersionsButton.setToolTipText("Detect library versions uses the bundled wordlists to try and identify library versions on the remote classpath");
+        optionsPanel.add(detectLibraryVersionsButton, new GridConstraints(7, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        copyWordlistButton = new JButton();
+        copyWordlistButton.setActionCommand("copyWordlist");
+        copyWordlistButton.setText("Copy Detect Library Wordlist");
+        copyWordlistButton.setToolTipText("Detect library versions uses the bundled wordlists to try and identify library versions on the remote classpath");
+        optionsPanel.add(copyWordlistButton, new GridConstraints(8, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label5 = new JLabel();
+        label5.setText("Built-in Analyzer:");
+        optionsPanel.add(label5, new GridConstraints(6, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
@@ -250,6 +257,7 @@ public class BurpGui {
         enablePollingCheckBox.addActionListener(actionListener);
         detectLibraryVersionsButton.addActionListener(actionListener);
         clearHistoryAndResetButton.addActionListener(actionListener);
+        copyWordlistButton.addActionListener(actionListener);
         refreshDNS.addActionListener(actionListener);
         cellRenderer = new JListRenderer();
 
