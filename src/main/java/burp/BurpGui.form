@@ -13,8 +13,8 @@
       <grid id="33842" binding="classPanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <minimum-size width="-1" height="256"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="64" height="64"/>
           </grid>
         </constraints>
         <properties>
@@ -24,8 +24,8 @@
         <children>
           <scrollpane id="de1cc">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <minimum-size width="128" height="-1"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="60" height="16"/>
               </grid>
             </constraints>
             <properties>
@@ -42,8 +42,8 @@
           </scrollpane>
           <scrollpane id="125c4">
             <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <minimum-size width="128" height="-1"/>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="60" height="16"/>
               </grid>
             </constraints>
             <properties>
@@ -84,9 +84,9 @@
       <grid id="75da8" binding="optionsPanel" layout-manager="GridLayoutManager" row-count="15" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="true">
-            <minimum-size width="-1" height="256"/>
-            <maximum-size width="-1" height="256"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="3" indent="0" use-parent-layout="true">
+            <minimum-size width="64" height="256"/>
+            <preferred-size width="-1" height="256"/>
           </grid>
         </constraints>
         <properties/>
@@ -94,8 +94,8 @@
         <children>
           <scrollpane id="e4653">
             <constraints>
-              <grid row="0" column="1" row-span="14" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <minimum-size width="128" height="-1"/>
+              <grid row="0" column="1" row-span="14" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="32" height="-1"/>
                 <maximum-size width="-1" height="256"/>
               </grid>
             </constraints>
