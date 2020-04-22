@@ -1,10 +1,14 @@
 plugins {
     id 'java'
-    id 'application'
+    id 'maven'
     id 'com.github.johnrengelman.shadow' version '2.0.4'
 }
 
-mainClassName = 'com.bishopfox.gadgetprobe.GadgetProbe'
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.bishopfox.gadgetprobe.GadgetProbe'
+    }
+}
 
 group 'com.bishopfox'
 version '1.0-SNAPSHOT'
