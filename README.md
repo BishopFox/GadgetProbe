@@ -67,10 +67,10 @@ Object obj = gp.getObject("org.apache.commons.collections.functors.invokertransf
 
 ### How it works
 
-See my [write-up](https://know.bishopfox.com/research/gadgetprobe) on the Bishop Fox blog.
+See my [write-up](https://labs.bishopfox.com/tech-blog/gadgetprobe) on the Bishop Fox blog.
 
 ### Author
 
-Twitter: [@BumbleSec](https://twitter.com/theBumbleSec)
+Twitter: [@theBumbleSec](https://twitter.com/theBumbleSec)
 
 GitHub: [the-bumble](https://github.com/the-bumble/)
